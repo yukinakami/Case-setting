@@ -1,0 +1,151 @@
+@font-face {
+    font-family: 'AlibabaPuHui_light';
+    src: url('../font/Alibaba-PuHuiTi-Light.ttf');
+}
+
+body {
+    background:rgb(238,238,238);
+    background: url(../img/main_page_bc.png) center top no-repeat;
+    margin: 0 auto;
+    background-size: cover;
+    /* overflow: hidden; */
+    /* background-attachment: fixed; */
+}
+
+.whole_page_background{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.whole_page_background .head_title img{
+    width: 555px;
+    height: 135px;
+    margin-top:45px ;
+    margin-left: 43px;
+    z-index: 5;
+}
+
+.whole_page_background .head_title{
+    width: 100%;
+    display: flex;
+}
+
+.whole_page_background .luoxuan{
+    display: flex;
+}
+
+.top_option{
+    display: flex;
+    margin-left: 1290px;
+    /* margin-top: 20px; */
+    z-index: 5;
+    font-family: "AlibabaPuHui_light";
+    font-size: 20;
+}
+
+.top_option p{
+    color: #ffffff;
+}
+
+/* .top_option a{
+    margin-left: 15px;
+} */
+
+.luoxuan .line{
+    margin-top: 20px;
+    margin-right: 10px;
+    height: 15px;
+    width: 10px;
+    border-right: solid #ffffff 1px;
+}
+
+.whole_page_background .luoxuan img{
+    width: 464px;
+    height: 773px;
+    overflow: hidden;
+    margin-top: 0 ;
+    margin-left: -42px;
+    z-index: -1;
+}
+
+.whole_page_background .main{
+    background-attachment: fixed;
+    margin-top: 170px;
+    z-index: 5;
+    /* width: 94%; */
+    height: 510px;
+    margin-left: 3%;
+    margin-right: 3%;
+    background-color: #fffbef;
+    border-radius: 20px 20px 20px 20px;
+}
+
+.main .dianzilian img{
+    z-index: 6;
+    margin-top: 41px;
+    margin-left: 30px;
+    width: 486px;
+    height: 112px;
+}
+
+/* .main .dianzilian img:hover{
+    z-index: 6;
+    margin-top: 41px;
+    margin-left: 30px;
+    width: 486px;
+    height: 112px;
+} */
+
+.main .lianchaxun img{
+    /*background: url(../img/dianzilian.png);*/
+    z-index: 6;
+    margin-top: 41px;
+    margin-left: 532px;
+    width: 486px;
+    height: 112px;
+}
+
+.main .wode img{
+    /*background: url(../img/dianzilian.png);*/
+    z-index: 6;
+    margin-top: 41px;
+    margin-left: 1054px;
+    width: 191px;
+    height: 112px;
+}
+
+.main .main_button{
+    margin-left: 50px;
+}
+
+.main .other_button{
+    margin-left: 100px; 
+}
+
+.main .wodeanjian img{
+    width: 199px;
+    height: 247px;
+    margin-top: 205px;
+}
+
+.main .fayuandaohang img{
+    width: 199px;
+    height: 247px;
+    margin-top: 205px;
+    margin-left: 224px;
+}
+
+.main .manyidupingjia img{
+    width: 199px;
+    height: 247px;
+    margin-top: 205px;
+    margin-left: 448px;
+}
+
+.main .lianjiandu img{
+    width: 199px;
+    height: 247px;
+    margin-top: 205px;
+    margin-left: 672px;
+}

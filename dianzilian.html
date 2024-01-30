@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width = 1200">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>电子立案审查网</title>
+    <link rel="icon" type="image/x-icon" href=".\img\favicon.ico">
+    <link rel="stylesheet" type="text/css" href="css\dianzilian_page.css">
+</head>
+<body>
+    <div>
+        <div class="whole_page_background">
+            <div class="head_title">
+                <img src="img/head_title.png" style="position: absolute">
+            </div>
+            <div class="luoxuan">
+                <img src="img/luoxuan.png" alt="luoxuan" style="position: absolute">
+            </div>
+            <div class="main_page">
+                <div class="title_head">
+                    <p>电子立案资料提交</p>
+                </div>
+                <div class="title_1">
+                    <p>提交立案材料</p>
+                </div>
+                <div class="tijiao">
+                    <p>材料提交框</p>
+                </div>
+                <div class="post">
+                    <form method="post" enctype="multipart/form-data">
+                        <div>
+                            <label for="liancailiaotijiao">选择文件上传</label>
+                            <input type="file" id="liancailiaotijiao" name="liancailiaotijiao" multiple="multiple">
+                        </div>
+                        <div class="preview">
+                            <p>未选择相关文件</p>
+                        </div>
+                        <div>
+                            <button>提交</button>
+                        </div>
+                    </form>
+                    <div class="jieshi">
+                        <p>这是一段文字这是一段文字这是一段文字
+                            这是一段文字这是一段文字这是一段文字
+                            这是一段文字这是一段文字这是一段文字
+                            这是一段文字这是一段文字这是一段文字
+                            这是一段文字这是一段文字这是一段文字
+                            这是一段文字这是一段文字这是一段文字
+                            这是一段文字这是一段文字这是一段文字</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const input = document.querySelector("input");
+        const preview = document.querySelector(".preview");
+
+        input.style.opacity = 0;
+        // <input> 元素的 opacity 样式属性为 0，使其完全透明
+        input.addEventListener("change", updateImageDisplay);
+
+        function updateImageDisplay(){
+            while(preview.firstChild){
+                preview.removeChild(preview.firstChild);
+            }
+
+            const curFiles = input.files;
+            if (curFiles.length == 0){
+                //未选择文件
+                const para = document.createElement("p")
+                para.textContent = "未选择相关文件";
+                preview.appendChild(para);
+            }
+            else{
+                const list = document.createElement("ol");
+                preview.appendChild(list);
+
+            for(const file of curFiles){
+                const listItem = document.createElement("li");
+                const para = document.createElement("p");
+                if (validFileType(file)) {
+        para.textContent = `${file.name}; ${returnFileSize(
+          file.size,
+        )}.`;
+        const image = document.createElement("img");
+        image.src = ChangeFileImage(file);
+        listItem.appendChild(image);
+        listItem.appendChild(para);
+                }
+                else{
+                    para.textContent = `File bame ${file.name}: 不是
+                    正确的格式，请更换正确的文件格式。`;
+                    listItem.appendChild(para);
+                }
+
+                list.appendChild(listItem);
+            }
+        }
+    }
+
+    const fileTypes = [
+        "application/msword",
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "application/pdf",
+    ];
+
+    function validFileType(file){
+        return fileTypes.includes(file.type);
+    }
+
+    function returnFileSize(number){
+        if(number < 1024){
+            return `${number} bytes`;
+        }
+        else if(number >= 1024 && number < 1048576){
+            return `${(number / 1024).toFixed(1)} KB`;
+            //保留一位小数
+        }
+        else if(number >= 1048576){
+            return `${(number / 1048576).toFixed(1)} MB`;
+        }
+    }
+
+    function ChangeFileImage(file){
+        //img.src = URL.createObjectURL(file);
+        if(file.type == "application/msword"){
+            return '.\\img\\doc.png';
+        }
+        else if(file.type == "application/vnd.openxmlformats-officedocument.wordprocessingml.document"){
+            return '.\\img\\docx.png';
+        }
+        else{
+            return '.\\img\\pdf.png';
+        }
+    }
+    </script>
+</body>

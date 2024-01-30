@@ -1,0 +1,178 @@
+@font-face {
+    font-family: 'AlibabaPuHui_light';
+    src: url('../font/Alibaba-PuHuiTi-Light.ttf');
+}
+
+body {
+    background:rgb(238,238,238);
+    background: url(../img/main_page_bc.png) center top no-repeat;
+    margin: 0 auto;
+    background-size: cover;
+    /* overflow: hidden; */
+    /* background-attachment: fixed; */
+    overflow-y:auto;
+overflow-x:hidden
+}
+
+.whole_page_background{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.whole_page_background .head_title img{
+    width: 341px;
+    height: 82px;
+    margin-top: 36px ;
+    margin-left: 39px;
+    z-index: 5;
+}
+
+.whole_page_background .head_title{
+    width: 100%;
+    display: flex;
+}
+
+.whole_page_background .luoxuan{
+    display: flex;
+}
+
+.whole_page_background .luoxuan img{
+    width: 464px;
+    height: 773px;
+    overflow: hidden;
+    margin-top: 0 ;
+    margin-left: -42px;
+    z-index: -1;
+}
+
+.main_page{
+    margin: auto;
+    background: #fffbef;
+    width: 1217px;
+    height: 600px;
+    margin-top: 152px; 
+    overflow:hidden;
+}
+
+.title_head{
+    margin-top: 0;
+    width: 100%;
+    margin-top: 36px;
+}
+
+.main_page .title_head p{
+    text-align: center;
+    font-family: "方正粗黑宋简体";
+    font-size: 30px;
+    color: #e10f0f;
+}
+
+.title_1 {
+    margin: auto;
+    margin-top: 26px;
+    width: 1084px;
+    height: 46.99px;
+    background: #ec4e4e;
+    overflow: hidden;
+}
+
+.title_1 p{
+    font-family: "方正粗黑宋简体";
+    font-size: 24px;
+    color: #f5f5f5;
+    text-align: center;
+    margin-top: 9px;
+}
+
+.tijiao{
+    width: 540px;
+    height: 59px;
+    background-color: #ec4e4e;
+    margin-top: 41px;
+    margin-left: 68px;
+    overflow: hidden;
+}
+
+.tijiao p{
+    text-align: center;
+    font-size: 24px;
+    font-family: "方正粗黑宋简体";
+    margin-top: 18px;
+    color: white;
+}
+
+form{
+    width: 500px;
+    background: #ccc;
+    margin-left: 68px;
+    padding: 20px;
+    height: 250px;
+    overflow: auto;
+}
+
+form ol{
+    padding-left: 0; /*选择了 form 元素下的所有有序列表 */
+}
+
+form li, form div > p{
+    /*选择了 form 元素下的所有列表项*/
+    /*选择了所有直接子级是 div 元素的段落 */
+    background-color: #eee;
+    display: flex;
+    justify-content: space-between; /*子元素沿主轴（水平方向）上均匀分布，最左边和最右边各自对齐容器的起始和结束位置 */
+    margin-bottom: 10px;
+    list-style-type: none; /*移除列表项的默认样式*/
+}
+
+form img{
+    height: 58px;
+    order: 1;
+    margin-top: 3px;
+}
+
+form p{
+    line-height: 32px;
+    padding-left: 10px;
+}
+
+form label, form button{
+    background-color: #7f9ccb;
+    padding: 5px, 10px;
+    border-radius: 5px;  /*圆角*/
+    font-size: 0.8rem;
+    height: auto;
+}
+
+form label:hover, form button:hover{
+    /*悬停样式选择*/
+    background-color: #2d5ba3;
+    color: white;
+}
+
+form label:active, form button:active{
+    /*按住样式选择*/
+    background-color: #0d3f8f;
+    color: white;
+}
+
+.post{
+    display: flex;
+}
+
+.jieshi{
+    width: 432px;
+    height: 279.51px;
+}
+
+.jieshi p{
+    word-wrap:break-word;
+    font-size: 24px;
+    font-family: "方正粗黑宋简体";
+    color: #0f0303;
+    margin-left: 67px;
+    text-align: center;
+}
+
+
+
