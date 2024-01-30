@@ -23,7 +23,7 @@
                 <div class="receive">
                     <form method="get">
                         <div class="table">
-                            <table class="ing" align="center">
+                            <table class="head" align="center">
                                 <tr>
                                     <th class="number">序号</th>
                                     <th class="status">状态</th>
@@ -33,27 +33,48 @@
                                     <th class="time"> 发起时间</th>
                                     <th class="check">操作</th>
                                 </tr>
-                                <!-- <?php foreach($data as $v): ?> -->
-                                <tr>
-                                    <td class="center"><!-- <?php echo $v['author'];?> --></td>
-                                    <td class="center"><!-- <?php echo $v['status'];?> --></td>
-                                    <td class="center"><!-- <?php echo $v['process'];?> --></td>
-                                    <td class="center"><!-- <?php echo $v['title'];?> --></td>
-                                    <td class="center"><!-- <?php echo $v['name'];?> --></td>
-                                    <td class="center"><!-- <?php echo $v['time'];?> --></td>
-                                    <td class="center">
-                                        <a href="#">编辑</a>
-                                    </td>
-                                </tr>
-                                <!-- <?php endforeach;?> -->
+                                <tbody id="showfilebody"></tbody>
                             </table>
-                            <div class="preview">
-                                <p>没有更多案件了</p>
-                            </div>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        $.ajax({
+            url:"#",
+            dataType:'json',
+            type:'get',
+            succes:function(data){
+                var dataStr = JSON.stringify(data);
+                data = $.parseJSON(dataStr);
+                writelist(data);
+            },
+            error :function(arg1){
+                alert("加载数据失败");
+                console.log(arg1)
+            }
+        })
+
+        function writelist(data){
+            var showfilebody = document.getElementById('showfilebody');
+            var tdstr = '';
+            for(var i = 0;i < data.length;i++){
+                tdstr+='<td>'+parseInt(i+1)+'</td>';
+                for(var j = 0;j<5;j++){
+                    tdstr+='<td>'+data[i][j]+'</td>';
+                    var btn1 = "<button onClick='openPage()'>查看</button>";
+                }
+                tdstr+='<td>'+btn1+'</td>';
+                tdstr=tdstr+'<tr>';
+            }
+
+            showfilebody.innerHTML = tdstr;
+        }
+
+        function openPage(){
+            window.open("#");
+        }
+    </script>
 </body>
