@@ -116,10 +116,42 @@ overflow-x:hidden
   margin-left: 15px;
 }
 
+.main_content{
+  display: flex;
+}
+
+.left_content{
+  margin-top: 20px;
+  margin-left: 44px;
+}
+
+.left_title p{
+  font-size: 24px;
+  font-family: "AlibabaPuHui_medium";
+  color: #0f0303;
+}
+
+.left_text p{
+  width: 513.64px;
+  height: auto;
+  margin-top: -15px;
+  font-family: "AlibabaPuHui_Regular";
+  line-height: 2;
+}
+
 .line{
   margin: auto;
   width: 94%;
   border: 1px solid #bdbaba;
+  margin-top: 5px;
+}
+
+.line_2{
+  border-right: 2px solid #9c9696;
+  margin-top: 87px;
+  margin-left: 37px;
+  margin-right: 10px;
+  height: 121px;
 }
 
 /* 进度条设置 */
@@ -153,4 +185,58 @@ overflow-x:hidden
     border-color: #0f8;
     background-color: #0f8;
     color: #fff;
+  }
+
+  form{
+    width: 540px;
+    height: 220px;
+    background: #f3eedf;
+    margin-left: 33px;
+    margin-top: 55px;
+    border-radius: 3px;
+  }
+
+  form ol{
+    padding-left: 0;
+  }
+
+  form li{
+    background-color: #f1ecec;
+    display: flex;
+    justify-content: space-between; /*子元素沿主轴（水平方向）上均匀分布，最左边和最右边各自对齐容器的起始和结束位置 */
+    margin-bottom: 18px;
+    list-style-type: none; /*移除列表项的默认样式*/
+  }
+
+  form div > p{
+    display: block;
+    margin-top: 18px;
+    margin-bottom: 10px;
+    margin-left: 22px;
+  }
+
+  .final p{
+    text-align: center;
+    margin-top: 10px;
+    font-family: "AlibabaPuHui_Regular";
+    font-size: 18px;
+  }
+
+  form img{
+    width: 42px;
+    height: 52px;
+    margin-top: 14px;
+    margin-left: 20px;
+  }
+
+  .type1{
+    color: #1e1b1b;
+    font-size: 24px;
+    font-family: "AlibabaPuHui_Regular";
+  }
+
+  .type2{
+    color: #999595;
+    font-size: 18px;
+    font-family: "AlibabaPuHui_Regular";
   }

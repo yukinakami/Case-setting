@@ -43,13 +43,22 @@
                     <div class="left_title">
                         <p>案件描述</p>
                     </div>
-                    <div class="lft_text">
+                    <div class="left_text">
                         <p>这是一段文字这是一段文字这是一段文字这是一段文字这是一段文
                             字这是一段文字这是一段文字这是一段文字这是一段文字这是一段
                             文字这是一段文字这是一段文字这是一段文字这是一段文字这是一
                             段文字这是一段文字这是一段文字这是一段文字这是一段文字这是</p>
                     </div>
                 </div>
+                <div class="line_2"></div>
+                <form action="#" method="get">
+                    <div class="preview">
+                        <p>没有文件</p>
+                    </div>
+                    <div class="final">
+                        <p>没有更多文件了</p>
+                    </div>
+                </form>
             </div>
             <div class="progress-bar">
                 <div class="progress-step active">Step 1</div>
@@ -61,4 +70,52 @@
         </div>
     </div>
     </div>
+    <script>
+        const file_name = "第一个文件名";
+        const file_size = "503.28KB";
+
+        const preview = document.querySelector(".preview");
+        //这里有一个const用于声明后端文件列表
+        while(preview.firstChild){
+            preview.removeChild(preview.firstChild);
+        }
+        //const curFiles = filelist.files;
+        //filelist就是那个文件列表
+        const list = document.createElement("ol");
+        preview.appendChild(list);
+
+        //for(const file of curFiles){
+            const listItem = document.createElement("li");
+            const p1 = document.createElement("p");
+            p1.textContent = file_name;//$`{file_name}`;
+            p1.classList.add("type1");
+
+            const p2 = document.createElement("p");
+            p2.textContent = file_size;//$`{file_size}`;
+            p2.classList.add("type2");
+
+            const image = document.createElement("img");
+            //image.src = ChangeFileImage(file);
+            image.src = '.\\img\\doc.png';
+
+            listItem.appendChild(p1);
+            listItem.appendChild(p2);
+            listItem.appendChild(image);
+
+            list.appendChild(listItem);
+        //}
+
+    //     function ChangeFileImage(file){
+    //     //img.src = URL.createObjectURL(file);
+    //     if(file.type == "application/msword"){
+    //         return '.\\img\\doc.png';
+    //     }
+    //     else if(file.type == "application/vnd.openxmlformats-officedocument.wordprocessingml.document"){
+    //         return '.\\img\\docx.png';
+    //     }
+    //     else{
+    //         return '.\\img\\pdf.png';
+    //     }
+    // }
+    </script>
 </body>
