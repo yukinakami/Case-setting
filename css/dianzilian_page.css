@@ -11,7 +11,7 @@ body {
     /* overflow: hidden; */
     /* background-attachment: fixed; */
     overflow-y:auto;
-overflow-x:hidden
+    overflow-x:hidden
 }
 
 .whole_page_background{
@@ -136,10 +136,11 @@ form p{
     padding-left: 10px;
 }
 
-form label, form button{
+form label, 
+form button{
     background-color: #7f9ccb;
-    padding: 5px, 10px;
-    border-radius: 5px;  /*圆角*/
+    border: 1px ridge black;
+    padding: 5px 10px;
     font-size: 0.8rem;
     height: auto;
 }
@@ -156,10 +157,6 @@ form label:active, form button:active{
     color: white;
 }
 
-.post{
-    display: flex;
-}
-
 .jieshi{
     width: 432px;
     height: 279.51px;
@@ -170,8 +167,14 @@ form label:active, form button:active{
     font-size: 24px;
     font-family: "方正粗黑宋简体";
     color: #0f0303;
-    margin-left: 67px;
+    margin-left: 100px;
     text-align: center;
+    margin-top: -30px;
+    text-align: left;
+}
+
+.post{
+    display: flex;
 }
 
 

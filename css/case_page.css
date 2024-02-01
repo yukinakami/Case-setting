@@ -70,16 +70,56 @@ overflow-x:hidden
   margin-left: 36px;
 }
 
+.left{
+  z-index: 4;
+}
+
 
 .right{
-  margin-left: 800px;
+  margin-left: 750px;
   margin-top: 45px;
+  z-index: 5;
 }
 
 .case_title{
   font-family: "AlibabaPuHui_medium";
   font-size: 30px;
   color: #0f0303;
+}
+
+.author{
+  font-size: 16px;
+  color: #9c9696;
+  font-family: "AlibabaPuHui_Regular";
+  margin-top: -20px;
+}
+
+.time{
+  font-size: 16px;
+  color: #9c9696;
+  font-family: "AlibabaPuHui_Regular";
+  margin-top: -8px;
+}
+
+.huge{
+  color: #df5757;
+  font-size: 36.7px;
+  font-family: "AlibabaPuHui_medium";
+  margin-top: -40px;
+}
+
+.process{
+  color: #a59f9e;
+  font-family: "AlibabaPuHui_Regular";
+  font-size: 18px;
+  margin-top: -30px;
+  margin-left: 15px;
+}
+
+.line{
+  margin: auto;
+  width: 94%;
+  border: 1px solid #bdbaba;
 }
 
 /* 进度条设置 */
