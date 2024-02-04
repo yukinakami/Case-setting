@@ -10,6 +10,12 @@ body {
     background-size: cover;
     /* overflow: hidden; */
     /* background-attachment: fixed; */
+      /* 100%窗口高度 */
+    height: 100vh;
+    /* 弹性布局 水平+垂直居中 */
+    justify-content: center;
+    align-items: center;
+  /* 渐变背景 */
 }
 
 .whole_page_background{

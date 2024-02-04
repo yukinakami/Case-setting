@@ -1,0 +1,123 @@
+*{
+    /* 初始化 */
+    margin: 0;
+    padding: 0;
+  }
+  
+  @font-face {
+    font-family: 'AlibabaPuHui_light';
+    src: url('../font/Alibaba-PuHuiTi-Light.ttf');
+  }
+  
+  @font-face {
+    font-family: 'AlibabaPuHui_medium';
+    src: url('../font/Alibaba-PuHuiTi-Medium.ttf');
+  }
+  
+  @font-face {
+    font-family: 'AlibabaPuHui_Regular';
+    src: url('../font/Alibaba-PuHuiTi-Regular.ttf');
+  }
+  
+  body{
+    /* 100%窗口高度 */
+    height: 100vh;
+    /* 弹性布局 水平+垂直居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 渐变背景 */
+    background: url(../img/main_page_bc.png) center top no-repeat;
+    overflow-y:auto;
+    overflow-x:hidden;
+    background-size: cover;
+  }
+
+  /* .head_title img{
+    width: 555px;
+    height: 135px;
+    margin-top:45px ;
+    margin-left: 43px;
+    z-index: 5;
+} */
+  
+  .container{
+    background-color: #fff;
+    width: 650px;
+    height: 415px;
+    border-radius: 5px;
+    /* 阴影添加 */
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.1);
+    position: relative;
+  }
+
+  .shiming{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    align-items: center;
+  }
+
+  h1{
+    font-size: 34px;
+    margin-top: 80px;
+    color: #c62a2a;
+    margin-bottom: 30px;
+  }
+
+  input{
+    /* 透明色 */
+    background-color: transparent;
+    width: 70%;
+    color: #000000;
+    border: none;
+    /* 下边框 */
+    border-bottom: 1px solid rgba(145, 29, 29, 0.4);
+    padding: 10px 0;
+    text-indent: 10px;
+    margin: 8px 0;
+    font-size: 14px;
+    letter-spacing: 2px;
+    width: 500px;
+  }
+  
+  input::placeholder{
+    color: #756f6f;
+  }
+  
+  input:focus{
+    color: #070707;
+    /* outline是轮廓线 */
+    outline: none;
+    border-bottom: 1px solid #e2dfc780;
+    transition: 0.5s;
+  }
+  
+   /* 被选中时隐藏占位符 */
+   input:focus::placeholder{
+    /* 透明度为0 */
+    opacity: 0;
+  }
+
+  .shiming button{
+    width: 70%;
+    margin-top: 35px;
+    background-color: #fef5db;
+    outline: none;
+    border-radius: 8px;
+    padding: 13px;
+    color: #c62a2a;
+    font-family: "AlibabaPuHui_medium";
+    letter-spacing: 2px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    width: 160px;
+  }
+  
+  .shiming button:hover{
+    background-color: #ebe3c9;
+    color:#c62a2a;
+    transition: background-color 0.5s ease;
+  }

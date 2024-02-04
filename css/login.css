@@ -4,6 +4,21 @@
   padding: 0;
 }
 
+@font-face {
+  font-family: 'AlibabaPuHui_light';
+  src: url('../font/Alibaba-PuHuiTi-Light.ttf');
+}
+
+@font-face {
+  font-family: 'AlibabaPuHui_medium';
+  src: url('../font/Alibaba-PuHuiTi-Medium.ttf');
+}
+
+@font-face {
+  font-family: 'AlibabaPuHui_Regular';
+  src: url('../font/Alibaba-PuHuiTi-Regular.ttf');
+}
+
 body{
   /* 100%窗口高度 */
   height: 100vh;
