@@ -14,15 +14,17 @@
 }
 
 body {
-  margin: 0 !important;
-  background:rgb(238,238,238);
+  /* 100%窗口高度 */
+  height: auto;
+  /* 弹性布局 水平+垂直居中 */
+  display: flex;
+  /* justify-content: center;
+  align-items: center; */
+  /* 渐变背景 */
   background: url(../img/main_page_bc.png) center top no-repeat;
-  /* margin: 0 auto; */
+  overflow-x: hidden;
+  overflow-y: auto;
   background-size: cover;
-  /* overflow: hidden; */
-  /* background-attachment: fixed; */
-  overflow-y:auto;
-  overflow-x:hidden
 }
 
 .whole_page_background{
@@ -57,12 +59,38 @@ body {
   z-index: -1;
 }
 
+.top_option{
+  display: flex;
+  margin-left: 1250px;
+  /* margin-top: 20px; */
+  z-index: 5;
+  font-family: "AlibabaPuHui_light";
+  font-size: 20px;
+}
+
+.top_option p{
+  color: #ffffff;
+}
+
+.luoxuan .line{
+  margin-top: 23px;
+  margin-right: 10px;
+  height: 25px;
+  width: 10px;
+  border: none;
+  border-right: solid #ffffff 1px;
+}
+
+.top_option :hover{
+  color: #fae317;
+}
+
 .main_page{
   margin: auto;
   background: #fffbef;
   width: 1217px;
   height: 600px;
-  margin-top: 152px; 
+  margin-top: 80px; 
   overflow:hidden;
 }
 
@@ -134,10 +162,11 @@ body {
 
 .left_text p{
   width: 513.64px;
-  height: auto;
+  height: 150px;
   margin-top: -15px;
   font-family: "AlibabaPuHui_Regular";
   line-height: 2;
+  overflow-y: auto;
 }
 
 .line{
@@ -163,7 +192,8 @@ body {
     margin-top: 55px;
     border-radius: 3px;
     padding: 20px;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: auto;
   }
 
   form ol{
@@ -222,7 +252,7 @@ body {
   }
 
   /* 进度条设置 */
-.progress-bar {
+/* .progress-bar {
   margin: auto;
   margin-top: 50px;
     display: flex;
@@ -252,4 +282,135 @@ body {
     border-color: #0f8;
     background-color: #0f8;
     color: #fff;
+  } */
+
+  .flexbox{
+    display: flex;
   }
+
+  .titlebox{
+    width: 217px;
+    height: auto;
+    background: #df5757;
+    text-align: center;
+    margin-top: -40px;
+  }
+
+  .titlebox p{
+    margin-top: 40px;
+    font-size: 40px;
+    font-family: "方正粗黑宋简体";
+    color: #fff;
+  }
+
+  .remix{
+    /* margin-left: 217px; */
+    background: #fff;
+    width: 1000px;
+    height: 177px;
+    margin-top: -40px; 
+    overflow-y: auto;
+    padding: 0px 20px;
+    font-family: "AlibabaPuHui_Regular";
+    line-height: 2;
+    overflow-y: auto;
+  }
+
+  .remix p{
+    margin-top: -20px;
+  }
+
+  .imagebtn{
+    display: flex;
+    margin-left: 860px;
+    cursor: pointer;
+  }
+
+  .imagebtn p{
+    margin-top: 17px;
+  }
+
+  .imagebtn p:hover{
+    color: #df5757;
+  }
+
+  .imagebtn img{
+    width: 20px;
+    height: 20px;
+    padding: 23px 0;
+  }
+  /* 遮罩层 */
+  .alert{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0,0,0,.4);
+    position: fixed;
+    top:0;
+    left: 0;
+}
+.alert-body{
+    width: 500px;
+    height: 600px;
+    background-color: #fff;
+    border-radius: 10px;
+    font-size: 30px;
+    color: #000;
+    text-align: center;       
+    animation: moveFromBottom .3s linear;     
+    overflow-y: auto;
+}
+.alert-title{
+    line-height: 100px;
+    border-bottom: 2px solid #eee;
+    font-size: 40px;
+    font-family: "方正粗黑宋简体";
+    color: #df5757;
+    position: relative;
+}
+/* .close{
+    width: 40px;
+    height: 40px;
+} */
+
+.close img{
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 35px; 
+  right: 35px;
+  cursor: pointer;
+}
+.close img:hover{
+  width: 33px;
+  height: 33px;
+}
+.alert-content{
+  height: 400px;
+  width: 400px;
+  margin: auto;
+  margin-top: 30px;
+  font-size: 17px;
+  line-height: 2;
+  color: #111010;
+  overflow-y: auto;
+  letter-spacing: 2px;
+}
+@keyframes moveFromTop{
+    0%{
+        margin-top: -600px;
+    }
+    100%{
+        margin-top: 0;
+    }
+}
+@keyframes moveFromBottom{
+    0%{
+        margin-bottom: -600px;
+    }
+    100%{
+        margin-bottom: 0;
+    }
+}

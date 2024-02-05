@@ -6,6 +6,7 @@
     <title>电子立案审查网</title>
     <link rel="icon" type="image/x-icon" href=".\img\favicon.ico">
     <link rel="stylesheet" type="text/css" href="css\message.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
 
 <body>
@@ -28,17 +29,56 @@
             </div>
             <div class="main_message">
                 <div class="itemlist">
-                    <button>全部消息</button>
+                        <li class="active">全部消息</li>
+                        <li>进度提醒</li>
+                        <li>审核结果</li>
                 </div>
                 <form action="get">
-                    <ol>
-                        <li><p>第一条消息</p></li>
-                        <li><p>第一条消息</p></li>
-                        <li><p>第一条消息</p></li>
-                        <li><p>第一条消息</p></li>
-                        <li><p>第一条消息</p></li>
-                    </ol>
+                    <div class="tab-con">
+                        <ol class="tb-panel">
+                            <li><p>第一条消息</p></li>
+                            <li><p>第一条消息</p></li>
+                            <li><p>第一条消息</p></li>
+                            <li><p>第一条消息</p></li>
+                            <li><p>第一条消息</p></li>
+                            <li><p>第2条消息</p></li>
+                            <li><p>第2条消息</p></li>
+                            <li><p>第2条消息</p></li>
+                            <li><p>第2条消息</p></li>
+                            <li><p>第2条消息</p></li>
+                            <li><p>第3条消息</p></li>
+                            <li><p>第3条消息</p></li>
+                            <li><p>第3条消息</p></li>
+                            <li><p>第3条消息</p></li>
+                            <li><p>第3条消息</p></li>
+                        </ol>
+                        <ol class="tb-panel">
+                            <li><p>第2条消息</p></li>
+                            <li><p>第2条消息</p></li>
+                            <li><p>第2条消息</p></li>
+                            <li><p>第2条消息</p></li>
+                            <li><p>第2条消息</p></li>
+                        </ol>
+                        <ol class="tb-panel">
+                            <li><p>第3条消息</p></li>
+                            <li><p>第3条消息</p></li>
+                            <li><p>第3条消息</p></li>
+                            <li><p>第3条消息</p></li>
+                            <li><p>第3条消息</p></li>
+                        </ol>
+                    </div>
                 </form>
             </div>
         </div>
     </div>
+    <script>
+        $(function() {
+            $(".itemlist li").click(function() {
+                $(this).addClass("active").siblings().removeClass("active");
+                var index = $(this).index();
+                console.log(index);
+                $(".tab-con .tb-panel").eq(index).show().siblings().hide();
+            });
+        })
+    </script>
+</body>

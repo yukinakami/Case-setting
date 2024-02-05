@@ -140,7 +140,7 @@ form ol{
 form li{
     /*选择了 form 元素下的所有列表项*/
     /*选择了所有直接子级是 div 元素的段落 */
-    background-color: #eee;
+    background-color: #fff;
     display: flex;
     justify-content: space-between; /*子元素沿主轴（水平方向）上均匀分布，最左边和最右边各自对齐容器的起始和结束位置 */
     margin-bottom: 10px;
@@ -150,17 +150,18 @@ form li{
     height: 120px;
 }
 
-.itemlist button{
-    margin-top: 20px;
-    margin-left: 50px;
+.itemlist li{
+    margin-top: 30px;
+    padding: 0px 60px;
     border: 0;
     background: #fff;
     cursor: pointer;
     color: #454343;
     font-family: "AlibabaPuHui_medium";
     font-size: 20px;
+    list-style: none;
 }
 
-.buttontype1{
+.itemlist .active{
     color: #c62828;
 }
