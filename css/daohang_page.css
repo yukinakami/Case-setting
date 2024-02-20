@@ -90,7 +90,7 @@
     background: #fffbef;
     width: 1217px;
     height: 570px;
-    margin-top: 40px; 
+    margin-top: 60px; 
     overflow:hidden;
   }
 
@@ -145,6 +145,11 @@
     background-color: #fff;
     margin-left: 100px;
     overflow-y: auto;
+    text-align: center;
+  }
+
+  .fayunjieshao{
+    margin: auto;
   }
 
   .int{
