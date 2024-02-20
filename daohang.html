@@ -9,13 +9,32 @@
 </head>
 <body>
     <div>
-        <div class="total_page">
+    <!-- 进度条设置 -->
+    <div class="whole_page_background">
+        <div class="head_title">
+            <img src="img/head_title.png" style="position: absolute">
+        </div>
+        <div class="luoxuan">
+            <!-- <img src="img/luoxuan.png" alt="luoxuan" style="position: absolute"> -->
+            <div class="top_option" style="float: left;">
+                <a target="_blank" href="./main_page.html" style="text-decoration: none ">
+                    <p>返回首页</p>
+                </a>
+                <div class="line"></div>
+                </div>
+        </div>
+        <div class="main_page">
             <div class="head_title">
-                <img src="img/head_title.png" style="position: absolute">
+                <p>法院导航</p>
             </div>
-            <div class="luoxuan">
-                <img src="img/luoxuan.png" alt="luoxuan" style="position: absolute">
+            <div>
+                <select name="city" id="select_one" class="select_one">
+                    <option value="xinchengqu">新城区</option>
+                    <option value="beilinqu">碑林区</option>
+                    <option value="lianhuqu">莲湖区</option>
+                </select>
             </div>
         </div>
+    </div>
     </div>
 </body>

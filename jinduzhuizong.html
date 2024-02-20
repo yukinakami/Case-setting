@@ -22,7 +22,7 @@
                 </div>
                 <div class="receive">
                     <form method="get">
-                        <div class="table">
+                        <div class="table" id="table">
                             <table class="head" align="center">
                                 <tr>
                                     <th class="number">序号</th>
@@ -55,10 +55,103 @@
                                         <td>xxx案件</td>
                                         <td>张三</td>
                                         <td>2024-01-31-11:21</td>
-                                        <td>查看</td>
-                                        </tr>
+                                        <td><a href="case_page.html">
+                                            <p>查看</p>
+                                        </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>审核中</td>
+                                        <td>人工审核</td>
+                                        <td>xxx案件</td>
+                                        <td>张三</td>
+                                        <td>2024-01-31-11:21</td>
+                                        <td><a href="case_page.html">
+                                            <p>查看</p>
+                                        </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>审核中</td>
+                                        <td>人工审核</td>
+                                        <td>xxx案件</td>
+                                        <td>张三</td>
+                                        <td>2024-01-31-11:21</td>
+                                        <td><a href="case_page.html">
+                                            <p>查看</p>
+                                        </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>审核中</td>
+                                        <td>人工审核</td>
+                                        <td>xxx案件</td>
+                                        <td>张三</td>
+                                        <td>2024-01-31-11:21</td>
+                                        <td><a href="case_page.html">
+                                            <p>查看</p>
+                                        </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>审核中</td>
+                                        <td>人工审核</td>
+                                        <td>xxx案件</td>
+                                        <td>张三</td>
+                                        <td>2024-01-31-11:21</td>
+                                        <td><a href="case_page.html">
+                                            <p>查看</p>
+                                        </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>审核中</td>
+                                        <td>人工审核</td>
+                                        <td>xxx案件</td>
+                                        <td>张三</td>
+                                        <td>2024-01-31-11:21</td>
+                                        <td><a href="case_page.html">
+                                            <p>查看</p>
+                                        </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>审核中</td>
+                                        <td>人工审核</td>
+                                        <td>xxx案件</td>
+                                        <td>张三</td>
+                                        <td>2024-01-31-11:21</td>
+                                        <td><a href="case_page.html">
+                                            <p>查看</p>
+                                        </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>审核中</td>
+                                        <td>人工审核</td>
+                                        <td>xxx案件</td>
+                                        <td>张三</td>
+                                        <td>2024-01-31-11:21</td>
+                                        <td><a href="case_page.html">
+                                            <p>查看</p>
+                                        </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>审核中</td>
+                                        <td>人工审核</td>
+                                        <td>xxx案件</td>
+                                        <td>张三</td>
+                                        <td>2024-01-31-11:21</td>
+                                        <td><a href="case_page.html">
+                                            <p>查看</p>
+                                        </a></td>
+                                    </tr>
                                 </tbody>
                             </table>
+                            <!-- <button class="pre" id="pre">上一页</button>
+                            <span class="pages" id="pages"></span>
+                            <button class="next" id="next">下一页</button> -->
                         </div>
                     </form>
                 </div>
@@ -101,4 +194,52 @@
             window.open("#");
         }
     </script>
+    <!-- <script>
+        const table = document.getElementById("table");
+        const pre = document.getElementById("pre");
+        const next = document.getElementById("next");
+        const pages = document.getElementById("pges");
+        const rows = table.rows.length;
+        //每页最多数据条数
+        let num1 = 8;
+        //每页真实展示条数
+        let num2;
+        //默认展示第一页
+        let page = 1;
+
+        //判断当前选择的页码数据条数
+        if(rows - num1 * (page - 1) >= 8) {
+            num2 = 8;
+        }
+        else{
+            num2 = rows - num1 * (page - 1) >= 8;
+        }
+
+        for (let i = num1 * (page - 1); i < num2 + num1 * (page - 1);i++) {
+            table.innerHTML += 
+        }
+
+        const createPages = function() {
+            pages.innerHTML = "";
+            //将括号内的表达式结果向上取整
+            for (let o = 0; i < Math.ceil(rows / 10); i++){
+                pages.innerHTML += `<button data-page="${i+1}">${i+1}</button>`;
+
+
+            }
+        }
+
+        createPages();
+
+        //前翻事件
+        pre.onclick = function() {
+            if(page > 1) {
+                page--;
+
+            }
+            else{
+                alert("当前为第一页");
+            }
+        }
+    </script> -->
 </body>

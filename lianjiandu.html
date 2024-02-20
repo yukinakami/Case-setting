@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width = 1200">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>电子立案审查网</title>
+    <link rel="icon" type="image/x-icon" href=".\img\favicon.ico">
+    <link rel="stylesheet" type="text/css" href="css\lianjiandu.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+
+<body>
+    <div>
+        <div class="whole_page_background">
+            <div class="head_title">
+                <img src="img/head_title.png" style="position: absolute">
+            </div>
+            <div class="luoxuan">
+                <img src="img/luoxuan.png" alt="luoxuan" style="position: absolute">
+                <div class="top_option" style="float: left;">
+                    <a target="_blank" href="./main_page.html" style="text-decoration: none ">
+                        <p>返回首页</p>
+                    </a>
+                    <div class="line"></div>
+                    </div>
+            </div>
+            <div class="title">
+                <h1>监督中心</h1>
+            </div>
+            <div class="main_message">
+                <div class="itemlist">
+                        <li class="active">审核中的案件</li>
+                        <li>待人工审核案件</li>
+                        <li>审核完成的案件</li>
+                </div>
+                <form action="get">
+                    <div class="tab-con">
+                        <ol class="tb-panel">
+                            <li><p>第一条消息</p></li>
+                            <li><p>第一条消息</p></li>
+                            <li><p>第一条消息</p></li>
+                            <li><p>第一条消息</p></li>
+                            <li><p>第一条消息</p></li>
+                        </ol>
+                        <ol class="tb-panel">
+                            <li><p>第2条消息</p></li>
+                            <li><p>第2条消息</p></li>
+                            <li><p>第2条消息</p></li>
+                            <li><p>第2条消息</p></li>
+                            <li><p>第2条消息</p></li>
+                        </ol>
+                        <ol class="tb-panel">
+                            <li><p>第3条消息</p></li>
+                            <li><p>第3条消息</p></li>
+                            <li><p>第3条消息</p></li>
+                            <li><p>第3条消息</p></li>
+                            <li><p>第3条消息</p></li>
+                        </ol>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function() {
+            $(".itemlist li").click(function() {
+                $(this).addClass("active").siblings().removeClass("active");
+                var index = $(this).index();
+                console.log(index);
+                $(".tab-con .tb-panel").eq(index).show().siblings().hide();
+            });
+        })
+    </script> 
+
+    <!-- <script>
+        const title = "第n个案件";
+        const time = "2020.10.10,11:21";
+        const status = ""
+    </script> -->
+</body>

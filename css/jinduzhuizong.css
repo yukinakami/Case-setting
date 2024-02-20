@@ -11,7 +11,7 @@ body {
     /* overflow: hidden; */
     /* background-attachment: fixed; */
     overflow-y:auto;
-overflow-x:hidden
+    overflow-x:hidden;
 }
 
 .whole_page_background{
@@ -52,7 +52,7 @@ overflow-x:hidden
     width: 1217px;
     height: 600px;
     margin-top: 152px; 
-    overflow:hidden;
+    overflow:auto; 
 }
 
 .title_first{
@@ -70,12 +70,11 @@ table{
     width: 90%;
     border-collapse: collapse;
     text-align: center;
-    overflow-x:auto
 }
 
 th, td {
     text-align: center;
-    padding: 8px;
+    padding: 0px;
 }
 
 tr:nth-child(even){background-color: #f2f2f2}
@@ -83,9 +82,13 @@ tr:nth-child(even){background-color: #f2f2f2}
 th {
     background-color: #d8463e;
     color: white;
+    table-layout:fixed;
   }
 
 tr:hover{
     background-color: #ffffff
 }
 
+.hidden{
+    overflow: auto;
+}

@@ -1,0 +1,47 @@
+@font-face {
+    font-family: 'AlibabaPuHui_light';
+    src: url('../font/Alibaba-PuHuiTi-Light.ttf');
+}
+
+body {
+    background:rgb(238,238,238);
+    background: url(../img/main_page_bc.png) center top no-repeat;
+    margin: 0 auto;
+    background-size: cover;
+    /* overflow: hidden; */
+    /* background-attachment: fixed; */
+    overflow-y:auto;
+    overflow-x:hidden
+}
+
+.total_page{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.total_page .head_title img{
+    width: 341px;
+    height: 82px;
+    margin-top: 36px ;
+    margin-left: 39px;
+    z-index: 5;
+}
+
+.total_page .head_title{
+    width: 100%;
+    display: flex;
+}
+
+.total_page .luoxuan{
+    display: flex;
+}
+
+.total_page .luoxuan img{
+    width: 464px;
+    height: 773px;
+    overflow: hidden;
+    margin-top: 0 ;
+    margin-left: -42px;
+    z-index: -1;
+}
