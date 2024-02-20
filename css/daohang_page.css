@@ -106,8 +106,71 @@
     color: #e10f0f;
   }
 
+  .select{
+    display: flex;
+  }
+
+  .select_two{
+    display: block;
+    margin-top: 130px;
+    margin-left: 30px;
+  }
+
+  .select_two p{
+    font-family: "AlibabaPuHui_medium";
+    margin-left: 110px;
+    font-size: 20px;
+  }
+
   .select_one{
     /*将默认的select选择框样式清除*/
     appearance: none;
     width: 200px;
+    border: 3px solid #e6e938;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #e10f0f;
+    text-align: center;
+    font-size: 18px;
+    font-family: "AlibabaPuHui_medium";
+    color: #fff;
+    margin-left: 100px;
+    margin-top: 10px;
+  }
+
+  .introduce{
+    margin-top: 50px;
+    width: 700px;
+    height: 400px;
+    background-color: #fff;
+    margin-left: 100px;
+    overflow-y: auto;
+  }
+
+  .int{
+    text-align: center;
+  }
+
+  .int h1{
+    font-size: 26px;
+    font-family: "AlibabaPuHui_medium";
+    color: #262525;
+  }
+
+  .int h2{
+    font-family: "AlibabaPuHui_Regular";
+    color: #898787;
+    margin-top: -10px;
+    font-size: 16px;
+  }
+
+  .image img{
+    width: 400px;
+    height: auto;
+    margin-top: 20px;
+  }
+
+  .image p{
+    font-family: "AlibabaPuHui_Regular";
+    font-size: 18px;
   }

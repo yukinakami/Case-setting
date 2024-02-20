@@ -158,18 +158,19 @@ form label:active, form button:active{
 }
 
 .jieshi{
-    width: 432px;
+    width: 500px;
     height: 279.51px;
 }
 
 .jieshi p{
     word-wrap:break-word;
-    font-size: 24px;
-    font-family: "方正粗黑宋简体";
+    /* font-size: 24px; */
+    font-family: "AlibabaPuHui_Regular";
+    line-height: 2;
     color: #0f0303;
-    margin-left: 100px;
+    margin-left: 60px;
     text-align: center;
-    margin-top: -30px;
+    margin-top: -50px;
     text-align: left;
 }
 
