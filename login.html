@@ -22,9 +22,9 @@
             </form>
             <div class="login-box">
                 <h1>login</h1>
-                <input type="text" placeholder="电话号码">
-                <input type="password" placeholder="密码">
-                <button>登录</button>
+                <input type="text" id="tele_1" placeholder="电话号码">
+                <input type="password" id="pwd_1" placeholder="密码">
+                <button onclick="loginUser()">登录</button>
             </div>
         </div>
             <div class="con-box left">
@@ -105,5 +105,44 @@
                 })
             }
         }
+    </script>
+
+    <script type="text/javascript">
+        function loginUser() {
+            var username = document.getElementById("tele_1").value;
+            var password = document.getElementById("pwd_1").value;
+
+            var loginData = {
+                    username: username,
+                    password: password
+                };
+
+                fetch("http://api.lianglove.cn/user/login", {
+                    method: "POST",
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(loginData),
+                })
+                .then(Response => {
+                    if(!Response.ok) {
+                        throw new Error("登录失败");
+                    }
+
+                    return response.json();
+                })
+                .then(data => {
+                    const token = data.token;
+                    localStorage.setItem("token", token);
+                })
+                .catch(error => {
+                    console.error("Error Registration:", error);
+                    alert("登录失败，请稍后尝试");
+                });
+            }
+
+            function headertoken(token) {
+
+            }
     </script>
 </body>
