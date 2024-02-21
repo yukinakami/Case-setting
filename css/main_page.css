@@ -21,7 +21,6 @@ body {
 .whole_page_background{
     width: 100%;
     height: 100%;
-    position: absolute;
 }
 
 .whole_page_background .head_title img{
@@ -54,10 +53,6 @@ body {
     color: #ffffff;
 }
 
-/* .top_option a{
-    margin-left: 15px;
-} */
-
 .luoxuan .line{
     margin-top: 20px;
     margin-right: 10px;
@@ -76,82 +71,41 @@ body {
 }
 
 .whole_page_background .main{
-    background-attachment: fixed;
-    margin-top: 170px;
-    z-index: 5;
-    /* width: 94%; */
-    height: 510px;
-    margin-left: 3%;
-    margin-right: 3%;
-    background-color: #fffbef;
+    margin: auto;
+    background: #fffbef;
+    width: 1217px;
+    height: 550px;
+    margin-top: 152px; 
+    overflow:auto; 
     border-radius: 20px 20px 20px 20px;
 }
 
-.main .dianzilian img{
-    z-index: 6;
-    margin-top: 41px;
+.main_button{
+    display: flex;
+    margin-top: 60px;
+}
+
+.other_button{
+    display: flex;
+    margin-top: 60px;
+}
+
+.main_button img{
+    width: 486px;
+    height: 112px;
     margin-left: 30px;
-    width: 486px;
-    height: 112px;
 }
 
-/* .main .dianzilian img:hover{
-    z-index: 6;
-    margin-top: 41px;
+.other_button img{
+    width: 199px;
+    height: 247px;
     margin-left: 30px;
-    width: 486px;
-    height: 112px;
-} */
-
-.main .lianchaxun img{
-    /*background: url(../img/dianzilian.png);*/
-    z-index: 6;
-    margin-top: 41px;
-    margin-left: 532px;
-    width: 486px;
-    height: 112px;
 }
 
-.main .wode img{
-    /*background: url(../img/dianzilian.png);*/
-    z-index: 6;
-    margin-top: 41px;
-    margin-left: 1054px;
-    width: 191px;
-    height: 112px;
+.dianzilian{
+    margin-left: 75px;
 }
 
-.main .main_button{
-    margin-left: 50px;
-}
-
-.main .other_button{
-    margin-left: 100px; 
-}
-
-.main .wodeanjian img{
-    width: 199px;
-    height: 247px;
-    margin-top: 205px;
-}
-
-.main .fayuandaohang img{
-    width: 199px;
-    height: 247px;
-    margin-top: 205px;
-    margin-left: 224px;
-}
-
-.main .manyidupingjia img{
-    width: 199px;
-    height: 247px;
-    margin-top: 205px;
-    margin-left: 448px;
-}
-
-.main .lianjiandu img{
-    width: 199px;
-    height: 247px;
-    margin-top: 205px;
-    margin-left: 672px;
+.wodeanjian{
+    margin-left: 130px;
 }

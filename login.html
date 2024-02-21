@@ -11,19 +11,18 @@
 <body>
     <div class="container">
         <div class="form-box">
-            <form action="./shimingrenzheng.html" method="post">
+            <form>
                 <div class="register-box hidden">
                     <h1>register</h1>
-                    <input type="text" placeholder="电话号码">
-                    <input type="email" placeholder="邮箱">
-                    <input type="password" placeholder="密码">
-                    <input type="password" placeholder="确认密码">
-                    <button>注册</button>
+                    <input type="text" id="tele" placeholder="电话号码">
+                    <input type="password" id="pw" placeholder="密码">
+                    <input type="password" id="repw" placeholder="确认密码">
+                    <button onclick="registerUser()">注册</button>
                 </div>
             </form>
             <div class="login-box">
                 <h1>login</h1>
-                <input type="text" placeholder="电话号码/邮箱">
+                <input type="text" placeholder="电话号码">
                 <input type="password" placeholder="密码">
                 <button>登录</button>
             </div>
@@ -43,7 +42,8 @@
                 <button id="register">去注册</button>
             </div>
         </div>
-        <script>
+        
+    <script>
             let login = document.getElementById("login");
             let register = document.getElementById("register");
             let form_box = document.getElementsByClassName('form-box')[0];
@@ -61,5 +61,49 @@
                 register_box.classList.add("hidden");
                 login_box.classList.remove("hidden");
             })
-        </script>
+    </script>
+
+    <script type="text/javascript">
+        function checkpassword() {
+            var password = document.getElementById("pw").value;
+            var repassword = document.getElementById("repw").value;
+            
+            if(password == repassword) {
+                return true;    
+            }else {
+                alert("两次密码输入不一致，请重新设置");
+                return false;
+            } 
+        }
+
+        function registerUser() {
+            if(checkpassword()) {
+                var username = document.getElementById("tele").value;
+                var password = document.getElementById("pw").value;
+
+                var userData = {
+                    username: username,
+                    password: password
+                };
+
+                fetch("http://api.lianglove.cn/user/register", {
+                    method: "POST",
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(userData),
+                })
+                .then(Response => Response.json())
+                .then(data => {
+                    console.log("Registration successful", data);
+                    window.location.href = "shimingrenzheng.html";
+                    alert("请继续完成实名认证");
+                })
+                .catch(error => {
+                    console.error("Error Registration:", error);
+                    alert("注册失败，请稍后尝试");
+                })
+            }
+        }
+    </script>
 </body>

@@ -66,82 +66,84 @@
         const preview = document.querySelector(".preview");
 
         input.style.opacity = 0;
-        // <input> 元素的 opacity 样式属性为 0，使其完全透明
+
         input.addEventListener("change", updateImageDisplay);
 
-        function updateImageDisplay(){
-            while(preview.firstChild){
-                preview.removeChild(preview.firstChild);
+        function updateImageDisplay() {
+        while (preview.firstChild) {
+            preview.removeChild(preview.firstChild);
+        }
+
+        const curFiles = input.files;
+        if (curFiles.length === 0) {
+            const para = document.createElement("p");
+            para.textContent = "No files currently selected for upload";
+            preview.appendChild(para);
+        } else {
+            const list = document.createElement("ol");
+            preview.appendChild(list);
+
+            for (const file of curFiles) {
+            const listItem = document.createElement("li");
+            const para = document.createElement("p");
+            if (validFileType(file)) {
+                para.textContent = `${file.name}, ${returnFileSize(
+                file.size,
+                )}.`;
+                const image = document.createElement("img");
+                image.src = URL.createObjectURL(file);
+
+                listItem.appendChild(image);
+                listItem.appendChild(para);
+            } else {
+                para.textContent = `File name ${file.name}: Not a valid file type. Update your selection.`;
+                listItem.appendChild(para);
             }
 
-            const curFiles = input.files;
-            if (curFiles.length == 0){
-                //未选择文件
-                const para = document.createElement("p")
-                para.textContent = "未选择相关文件";
-                preview.appendChild(para);
-            }
-            else{
-                const list = document.createElement("ol");
-                preview.appendChild(list);
-
-            for(const file of curFiles){
-                const listItem = document.createElement("li");
-                const para = document.createElement("p");
-                if (validFileType(file)) {
-        para.textContent = `${file.name}; ${returnFileSize(
-          file.size,
-        )}.`;
-        const image = document.createElement("img");
-        image.src = ChangeFileImage(file);
-        listItem.appendChild(image);
-        listItem.appendChild(para);
-                }
-                else{
-                    para.textContent = `File bame ${file.name}: 不是
-                    正确的格式，请更换正确的文件格式。`;
-                    listItem.appendChild(para);
-                }
-
-                list.appendChild(listItem);
+            list.appendChild(listItem);
             }
         }
-    }
+        }
+        
+        const fileTypes = [
+        "image/apng",
+        "image/bmp",
+        "image/gif",
+        "image/jpeg",
+        "image/pjpeg",
+        "image/png",
+        "image/svg+xml",
+        "image/tiff",
+        "image/webp",
+        "image/x-icon",
+        ];
 
-    const fileTypes = [
-        "application/msword",
-        "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-        "application/pdf",
-    ];
-
-    function validFileType(file){
+        function validFileType(file) {
         return fileTypes.includes(file.type);
-    }
+        }
 
-    function returnFileSize(number){
-        if(number < 1024){
+        function returnFileSize(number) {
+        if (number < 1024) {
             return `${number} bytes`;
-        }
-        else if(number >= 1024 && number < 1048576){
+        } else if (number >= 1024 && number < 1048576) {
             return `${(number / 1024).toFixed(1)} KB`;
-            //保留一位小数
-        }
-        else if(number >= 1048576){
+        } else if (number >= 1048576) {
             return `${(number / 1048576).toFixed(1)} MB`;
         }
-    }
+        }
+    </script>
 
-    function ChangeFileImage(file){
-        //img.src = URL.createObjectURL(file);
-        if(file.type == "application/msword"){
-            return '.\\img\\doc.png';
+    <script>
+        function base64() {
+            var files = document.getElementById("liancailiaotijiao").files;
+            var base64Array = [];
+
+            for(var i = 0; i < files.length; i++){
+                var file = files[i];
+                var r = new FileReader();
+                r.readAsDataURL(file);
+                base64Array.push(base64Result);
+            }
         }
-        else if(file.type == "application/vnd.openxmlformats-officedocument.wordprocessingml.document"){
-            return '.\\img\\docx.png';
-        }
-        else{
-            return '.\\img\\pdf.png';
-        }
-    }
     </script>
 </body>
