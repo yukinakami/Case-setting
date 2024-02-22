@@ -36,7 +36,7 @@
                             <p>未选择相关文件</p>
                         </div>
                         <div>
-                            <button onclick="base64()">提交</button>
+                            <button id="submit_one">提交</button>
                         </div>
                     </form>
                     <div class="jieshi">
@@ -134,13 +134,15 @@
     </script>
 
     <script>
+        document.getElementById("submit_one").addEventListener("click", function() {
+        console.log("正在执行");
         const files = document.getElementById("liancailiaotijiao").files;
-        const base64Array = base64(files, 0.6);
+        base64(files, 0.6);
+        });
 
         function base64(files, quality) {
-
             const base64Array = [];
-
+            let processedFiles = 0;
             if (files.length == 3) {
                 for (let file of files) {
                     let reader = new FileReader();
@@ -157,11 +159,19 @@
                             ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
                             
                             let data = canvas.toDataURL(file.type, quality);
+                            console.log(data);
                             base64Array.push(data);
+
+                            processedFiles++;
+                            if (processedFiles === files.length) {
+                            // 在这里可以处理所有文件处理完毕后的逻辑
+                                console.log("所有文件处理完毕:", base64Array);
+                                alert("所有文件处理完毕");
+                            }
                         }
                     }      
+                };
             }
-        }
             else{
                 alert("上传文件数量不正确，请重新上传！");
             }
