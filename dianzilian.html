@@ -36,7 +36,7 @@
                             <p>未选择相关文件</p>
                         </div>
                         <div>
-                            <button>提交</button>
+                            <button onclick="base64()">提交</button>
                         </div>
                     </form>
                     <div class="jieshi">
@@ -134,15 +134,36 @@
     </script>
 
     <script>
-        function base64() {
-            var files = document.getElementById("liancailiaotijiao").files;
-            var base64Array = [];
+        const files = document.getElementById("liancailiaotijiao").files;
+        const base64Array = base64(files, 0.6);
 
-            for(var i = 0; i < files.length; i++){
-                var file = files[i];
-                var r = new FileReader();
-                r.readAsDataURL(file);
-                base64Array.push(base64Result);
+        function base64(files, quality) {
+
+            const base64Array = [];
+
+            if (files.length == 3) {
+                for (let file of files) {
+                    let reader = new FileReader();
+                    reader.readAsDataURL(file);
+                    reader.onload = ({ target: {result: src}}) => {
+                        var canvas = document.createElement("canvas");
+                        var ctx = canvas.getContext("2d");
+                        var img = new Image();
+                        img.src = src;
+                        img.onload = function() {
+                            let width = img.width;
+                            canvas.width = width;
+                            canvas.height = width * (img.height / img.width);
+                            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+                            
+                            let data = canvas.toDataURL(file.type, quality);
+                            base64Array.push(data);
+                        }
+                    }      
+            }
+        }
+            else{
+                alert("上传文件数量不正确，请重新上传！");
             }
         }
     </script>
