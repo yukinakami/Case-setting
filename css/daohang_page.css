@@ -179,3 +179,7 @@
     font-family: "AlibabaPuHui_Regular";
     font-size: 18px;
   }
+
+  .hidden{
+    display: none;
+  }
