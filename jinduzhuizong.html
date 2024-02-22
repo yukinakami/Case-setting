@@ -6,6 +6,7 @@
     <title>电子立案审查网</title>
     <link rel="icon" type="image/x-icon" href=".\img\favicon.ico">
     <link rel="stylesheet" type="text/css" href="css\jinduzhuizong.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
 <body>
     <div>
@@ -242,4 +243,20 @@
             }
         }
     </script> -->
+    <script>
+        var token = JSON.parse(localStorage.getItem("token"));
+        if(token){
+            $.ajaxSetup({
+                xhrFields:{
+                    withCredentials: true
+                },
+                headers: {
+                    "token": token
+                }
+            })
+        }
+        else{
+            window.location = "login.html";
+        }
+    </script>
 </body>
