@@ -137,44 +137,45 @@
         document.getElementById("submit_one").addEventListener("click", function() {
         console.log("正在执行");
         const files = document.getElementById("liancailiaotijiao").files;
-        base64(files, 0.6);
-        });
-
-        function base64(files, quality) {
-            const base64Array = [];
-            let processedFiles = 0;
             if (files.length == 3) {
-                for (let file of files) {
-                    let reader = new FileReader();
-                    reader.readAsDataURL(file);
-                    reader.onload = ({ target: {result: src}}) => {
-                        var canvas = document.createElement("canvas");
-                        var ctx = canvas.getContext("2d");
-                        var img = new Image();
-                        img.src = src;
-                        img.onload = function() {
-                            let width = img.width;
-                            canvas.width = width;
-                            canvas.height = width * (img.height / img.width);
-                            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-                            
-                            let data = canvas.toDataURL(file.type, quality);
-                            console.log(data);
-                            base64Array.push(data);
+                const base64Array = [];
 
-                            processedFiles++;
-                            if (processedFiles === files.length) {
-                            // 在这里可以处理所有文件处理完毕后的逻辑
-                                console.log("所有文件处理完毕:", base64Array);
-                                alert("所有文件处理完毕");
-                            }
+                Array.from(files).forEach(file => {
+                    const reader = new FileReader();
+
+                    reader.readAsDataURL(file);
+
+                    reader.onload = function () {
+                        const base64Data = reader.result;
+                        base64Array.push(base64Array);
+
+                        if(base64Array.length === files.length) {
+                            sendBase64(base64Array);
                         }
-                    }      
-                };
+                    };
+
+                    reader.onerror = function(error) {
+                        console.error("发生错误:", error);
+                    };
+                });
             }
             else{
                 alert("上传文件数量不正确，请重新上传！");
             }
+        });
+
+        function sendBase64(base64Array) {
+            fetch("#", {
+                method: "POST",
+                body: JSON.stringify({ base64Array })
+            })
+            .then(Response => Response.json())
+            .then(data => {
+                console.log("后端返回:", data);
+            })
+            .catch(error => {
+                console.error("发生错误:", error);
+            });
         }
     </script>
     <script>
@@ -185,7 +186,8 @@
                     withCredentials: true
                 },
                 headers: {
-                    "Authorization": token
+                    "Authorization": token,
+                    "Content-Type": "application/json"
                 }
             })
         }
