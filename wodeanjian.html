@@ -19,4 +19,20 @@
         </div>
         
     </div>
+    <script>
+        var token = JSON.parse(localStorage.getItem("token"));
+        if(token){
+            $.ajaxSetup({
+                xhrFields:{
+                    withCredentials: true
+                },
+                headers: {
+                    "Authorization": token
+                }
+            })
+        }
+        else{
+            window.location = "login.html";
+        }
+    </script>
 </body>

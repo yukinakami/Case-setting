@@ -1,0 +1,107 @@
+@font-face {
+    font-family: 'AlibabaPuHui_light';
+    src: url('../font/Alibaba-PuHuiTi-Light.ttf');
+  }
+  
+  @font-face {
+    font-family: 'AlibabaPuHui_medium';
+    src: url('../font/Alibaba-PuHuiTi-Medium.ttf');
+  }
+  
+  @font-face {
+    font-family: 'AlibabaPuHui_Regular';
+    src: url('../font/Alibaba-PuHuiTi-Regular.ttf');
+  }
+  
+  body {
+    /* 100%窗口高度 */
+    height: auto;
+    /* 弹性布局 水平+垂直居中 */
+    display: flex;
+    /* justify-content: center;
+    align-items: center; */
+    /* 渐变背景 */
+    background: url(../img/main_page_bc.png) center top no-repeat;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-size: cover;
+  }
+  
+  .whole_page_background{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  }
+  
+  .whole_page_background .head_title img{
+    width: 341px;
+    height: 82px;
+    margin-top: 0px ;
+    margin-left: 39px;
+    z-index: 5;
+  }
+  
+  .whole_page_background .head_title{
+    width: 100%;
+    display: flex;
+  }
+  
+  .whole_page_background .luoxuan{
+    display: flex;
+  }
+  
+  .whole_page_background .luoxuan img{
+    width: 464px;
+    height: 773px;
+    overflow: hidden;
+    margin-top: 0;
+    margin-left: -42px;
+    z-index: -1;
+  }
+  
+  .top_option{
+    display: flex;
+    margin-left: 1250px;
+    /* margin-top: 20px; */
+    z-index: 5;
+    font-family: "AlibabaPuHui_light";
+    font-size: 20px;
+  }
+  
+  .top_option p{
+    color: #ffffff;
+  }
+  
+  .luoxuan .line{
+    margin-top: 23px;
+    margin-right: 10px;
+    height: 25px;
+    width: 10px;
+    border: none;
+    border-right: solid #ffffff 1px;
+  }
+  
+  .top_option :hover{
+    color: #fae317;
+  }
+
+  .main_page{
+    margin: auto;
+    background: #fffbef;
+    width: 1217px;
+    height: 550px;
+    margin-top: 60px; 
+    overflow:hidden;
+  }
+
+  .head_title{
+    margin-top: 10px;
+  }
+
+  .head_title p{
+    margin: auto;
+    text-align: center;
+    font-family: "方正粗黑宋简体";
+    font-size: 30px;
+    color: #e10f0f;
+  }

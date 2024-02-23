@@ -53,6 +53,10 @@ body {
     color: #ffffff;
 }
 
+.top_option p:hover{
+    color: #c8d211;
+}
+
 .luoxuan .line{
     margin-top: 20px;
     margin-right: 10px;
