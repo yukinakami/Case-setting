@@ -191,32 +191,41 @@ function returnFileSize(number){
         let indictmentName;
         let confirmAddressName;
         let evidenceName;
+        let indictmentType;
+        let confirmAddressType;
+        let evidenceType;
 
         document.getElementById("submit_one").addEventListener("click", function() {
         console.log("正在执行");
         const files = document.getElementById("liancailiaotijiao").files;
         const city = document.getElementById("select_one").value;
         const cityCourt = `西安市-${city}`;
-        const caseType = document.getElementById("select_three").value;
+        const types= document.getElementById("select_three").value;
         if (files.length == 3) {
             for (i = 0;i < files.length; i++) {
                 if (files[i].name == "起诉状") {
                         const file = files[i];
+                        const indictmentFileType = file.type;
+                        saveIndictmentType(indictmentFileType);
                         sendFileIndictment(file);
                     }
                     else if(files[i].name == "送达地址确认书") {
                         const file = files[i];
+                        const confirmAddressType = file.type;
+                        saveConfirmAddressType(confirmAddressType);
                         sendFileConfirmAddress(file);
                     }
                     else if(files[i].name == "证据") {
                         const file = files[i];
+                        const evidenceType = file.type;
+                        saveEvidenceType(evidenceType);
                         sendFileEvidence(file);
                     }
                     else {
                         alert("上传文件中有文件名不符合要求，请重新检查后提交");
                     }
                 }
-            postInformation();
+            postInformation(cityCourt, types, indictmentName, confirmAddressName, evidenceName);
         }
         else{
             alert("上传文件数量不正确，请重新上传！");
@@ -228,11 +237,11 @@ function returnFileSize(number){
             formData.append("file", file);
             fetch("http://123.56.12.213:6791/upload/file/indictment", {
                 method: "POST",
-                body: formDta
+                body: formData
             })
             .then(Response => Response.json())
             .then(data => {
-                const indictmentFileName = data.fileName;
+                const indictmentFileName = `${data.fileName}.${indictmentType}`;
                 saveIndictmentName(indictmentFileName);
                 console.log('上传成功:', data);
             })
@@ -246,11 +255,11 @@ function returnFileSize(number){
             formData.append("file", file);
             fetch("http://123.56.12.213:6791/upload/file/confirmAddress", {
                 method: "POST",
-                body: formDta
+                body: formData
             })
             .then(Response => Response.json())
             .then(data => {
-                const confirmAddressName = data.fileName;
+                const confirmAddressName = `${data.fileName}.${confirmAddressType}`;              
                 saveConfirmAddressName(confirmAddressName);
                 console.log('上传成功:', data);
             })
@@ -264,13 +273,13 @@ function returnFileSize(number){
             formData.append("file", file);
             fetch("http://123.56.12.213:6791/upload/file/evidence", {
                 method: "POST",
-                body: formDta
+                body: formData
             })
             .then(Response => Response.json())
             .then(data => {
-                const confirmAddressName = data.fileName;
+                const evidenceName = `${data.fileName}.${evidenceType}`;  
+                saveEvidenceName(evidenceName);
                 //这里还没写完
-                saveEvidenceName(EvidenceName);
                 console.log('上传成功:', data);
             })
             .catch(error => {
@@ -290,6 +299,33 @@ function returnFileSize(number){
             evidenceName = fileName;
         }
 
+        function saveIndictmentName(fileTypes) {
+            if (fileTypes == "application/msword") {
+                indictmentType = "doc";
+            }
+            else {
+                indictmentType = "docx";
+            }
+        }
+
+        function saveConfirmAddressType(fileTypes) {
+            if (fileTypes == "application/msword") {
+                confirmAddressType = "doc";
+            }
+            else {
+                confirmAddressType = "docx";
+            }
+        }
+
+        function saveEvidenceType(fileTypes) {
+            if (fileTypes == "application/msword") {
+                evidenceType = "doc";
+            }
+            else {
+                evidenceType = "docx";
+            }  
+        }
+
         function postInformation(cityCourt, types, indictment, evidence, confirmAddress) {
             
             const formData = new FormData();
@@ -301,7 +337,7 @@ function returnFileSize(number){
 
             fetch("http://123.56.12.213:6791/application/application", {
                 method: "POST",
-                body: formDta
+                body: formData
             })
             .then(Response => Response.json())
             .then(data => {
