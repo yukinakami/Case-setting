@@ -27,7 +27,50 @@
                     <p>材料提交框</p>
                 </div>
                 <div class="post">
-                    <form method="post" enctype="multipart/form-data">
+                    <form>
+                        <div class="city">
+                            <p id="city">请选择法院所在地区</p>
+                            <select name="city" id="select_one" class="select_one" onchange="updateParagraph()">
+                                <option value="陕西省高级人民法院">陕西省高级人民法院</option>
+                                <option value="西安市中级人民法院">西安市中级人民法院</option>
+                                <option value="西安铁路运输中级人民法院">西安铁路运输中级人民法院</option>
+                                <option value="西安铁路运输人民法院">西安铁路运输人民法院</option>
+                                <option value="碑林区人民法院">碑林区</option>
+                                <option value="长安区人民法院">长安区</option>
+                                <option value="高陵县人民法院">高陵县</option>
+                                <option value="户县人民法院">户县</option>
+                                <option value="周至县人民法院">周至县</option>
+                                <option value="蓝田县人民法院">蓝田县</option>
+                                <option value="临潼区人民法院">临潼区</option>
+                                <option value="阎良区人民法院">阎良区</option>
+                                <option value="雁塔区人民法院">雁塔区</option>
+                                <option value="未央区人民法院">未央区</option>
+                                <option value="灞桥区人民法院">灞桥区</option>
+                                <option value="莲湖区人民法院">莲湖区</option>
+                                <option value="新城区人民法院">新城区</option>                   
+                            </select>
+
+                            <p id="type">请选择案件类型</p>
+                            <select name="types" id="select_three" class="select_one" onchange="updateParagraph2()">
+                                <option value="gaoji">陕西省高级人民法院</option>
+                                <option value="zhongji">西安市中级人民法院</option>
+                                <option value="tieluzhong">西安铁路运输中级人民法院</option>
+                                <option value="tielu">西安铁路运输人民法院</option>
+                                <option value="beilin">碑林区</option>
+                                <option value="changan">长安区</option>
+                                <option value="gaoling">高陵县</option>
+                                <option value="hu">户县</option>
+                                <option value="zhouzhi">周至县</option>
+                                <option value="lantian">蓝田县</option>
+                                <option value="lintong">临潼区</option>
+                                <option value="yanliang">阎良区</option>
+                                <option value="yanta">雁塔区</option>
+                                <option value="weiyang">未央区</option>
+                                <option value="baqiao">灞桥区</option>
+                                <option value="lianhu">莲湖区</option>
+                                <option value="xincheng">新城区</option>                   
+                            </select>
+                        </div>
                         <div>
                             <label for="liancailiaotijiao">选择文件上传</label>
                             <input type="file" id="liancailiaotijiao" name="liancailiaotijiao" multiple="multiple">
@@ -75,110 +118,226 @@
         }
 
         const curFiles = input.files;
-        if (curFiles.length === 0) {
-            const para = document.createElement("p");
-            para.textContent = "No files currently selected for upload";
-            preview.appendChild(para);
-        } else {
-            const list = document.createElement("ol");
-            preview.appendChild(list);
-
-            for (const file of curFiles) {
-            const listItem = document.createElement("li");
-            const para = document.createElement("p");
-            if (validFileType(file)) {
-                para.textContent = `${file.name}, ${returnFileSize(
-                file.size,
-                )}.`;
-                const image = document.createElement("img");
-                image.src = URL.createObjectURL(file);
-
-                listItem.appendChild(image);
-                listItem.appendChild(para);
-            } else {
-                para.textContent = `File name ${file.name}: Not a valid file type. Update your selection.`;
-                listItem.appendChild(para);
+            if (curFiles.length == 0){
+                //未选择文件
+                const para = document.createElement("p")
+                para.textContent = "未选择相关文件";
+                preview.appendChild(para);
             }
-
-            list.appendChild(listItem);
+            else{
+                const list = document.createElement("ol");
+                preview.appendChild(list);
+ 
+            for(const file of curFiles){
+                const listItem = document.createElement("li");
+                const para = document.createElement("p");
+                if (validFileType(file)) {
+        para.textContent = `${file.name}; ${returnFileSize(
+          file.size,
+        )}.`;
+        const image = document.createElement("img");
+        image.src = ChangeFileImage(file);
+        listItem.appendChild(image);
+        listItem.appendChild(para);
+                }
+                else{
+                    para.textContent = `File bame ${file.name}: 不是
+                    正确的格式，请更换正确的文件格式。`;
+                    listItem.appendChild(para);
+                }
+                list.appendChild(listItem);
             }
         }
-        }
+    }
         
         const fileTypes = [
-        "image/apng",
-        "image/bmp",
-        "image/gif",
-        "image/jpeg",
-        "image/pjpeg",
-        "image/png",
-        "image/svg+xml",
-        "image/tiff",
-        "image/webp",
-        "image/x-icon",
+        "application/msword",
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
         ];
 
-        function validFileType(file) {
+        function validFileType(file){
         return fileTypes.includes(file.type);
-        }
-
-        function returnFileSize(number) {
-        if (number < 1024) {
+    }
+ 
+//文件大小
+function returnFileSize(number){
+        if(number < 1024){
             return `${number} bytes`;
-        } else if (number >= 1024 && number < 1048576) {
+        }
+        else if(number >= 1024 && number < 1048576){
             return `${(number / 1024).toFixed(1)} KB`;
-        } else if (number >= 1048576) {
+            //保留一位小数
+        }
+        else if(number >= 1048576){
             return `${(number / 1048576).toFixed(1)} MB`;
         }
+    }
+ 
+    function ChangeFileImage(file){
+        //img.src = URL.createObjectURL(file);
+        if(file.type == "application/msword"){
+            return '.\\img\\doc.png';
         }
+        else if(file.type == "application/vnd.openxmlformats-officedocument.wordprocessingml.document"){
+            return '.\\img\\docx.png';
+        }
+        else{
+            return '.\\img\\pdf.png';
+        }
+    }
     </script>
 
     <script>
+        let indictmentName;
+        let confirmAddressName;
+        let evidenceName;
+
         document.getElementById("submit_one").addEventListener("click", function() {
         console.log("正在执行");
         const files = document.getElementById("liancailiaotijiao").files;
-            if (files.length == 3) {
-                const base64Array = [];
+        const city = document.getElementById("select_one").value;
+        const cityCourt = `西安市-${city}`;
+        const caseType = document.getElementById("select_three").value;
+        if (files.length == 3) {
+            for (i = 0;i < files.length; i++) {
+                if (files[i].name == "起诉状") {
+                        const file = files[i];
+                        sendFileIndictment(file);
+                    }
+                    else if(files[i].name == "送达地址确认书") {
+                        const file = files[i];
+                        sendFileConfirmAddress(file);
+                    }
+                    else if(files[i].name == "证据") {
+                        const file = files[i];
+                        sendFileEvidence(file);
+                    }
+                    else {
+                        alert("上传文件中有文件名不符合要求，请重新检查后提交");
+                    }
+                }
+            postInformation();
+        }
+        else{
+            alert("上传文件数量不正确，请重新上传！");
+        }
+    });
 
-                Array.from(files).forEach(file => {
-                    const reader = new FileReader();
-
-                    reader.readAsDataURL(file);
-
-                    reader.onload = function () {
-                        const base64Data = reader.result;
-                        base64Array.push(base64Array);
-
-                        if(base64Array.length === files.length) {
-                            sendBase64(base64Array);
-                        }
-                    };
-
-                    reader.onerror = function(error) {
-                        console.error("发生错误:", error);
-                    };
-                });
-            }
-            else{
-                alert("上传文件数量不正确，请重新上传！");
-            }
-        });
-
-        function sendBase64(base64Array) {
-            fetch("#", {
+        function sendFileIndictment(file) {
+            const formData = new FormData();
+            formData.append("file", file);
+            fetch("http://123.56.12.213:6791/upload/file/indictment", {
                 method: "POST",
-                body: JSON.stringify({ base64Array })
+                body: formDta
             })
             .then(Response => Response.json())
             .then(data => {
-                console.log("后端返回:", data);
+                const indictmentFileName = data.fileName;
+                saveIndictmentName(indictmentFileName);
+                console.log('上传成功:', data);
+            })
+            .catch(error => {
+                console.error("发生错误:", error);
+            });
+        }
+
+        function sendFileConfirmAddress(file) {
+            const formData = new FormData();
+            formData.append("file", file);
+            fetch("http://123.56.12.213:6791/upload/file/confirmAddress", {
+                method: "POST",
+                body: formDta
+            })
+            .then(Response => Response.json())
+            .then(data => {
+                const confirmAddressName = data.fileName;
+                saveConfirmAddressName(confirmAddressName);
+                console.log('上传成功:', data);
+            })
+            .catch(error => {
+                console.error("发生错误:", error);
+            });
+        }
+
+        function sendFileEvidence(file) {
+            const formData = new FormData();
+            formData.append("file", file);
+            fetch("http://123.56.12.213:6791/upload/file/evidence", {
+                method: "POST",
+                body: formDta
+            })
+            .then(Response => Response.json())
+            .then(data => {
+                const confirmAddressName = data.fileName;
+                //这里还没写完
+                saveEvidenceName(EvidenceName);
+                console.log('上传成功:', data);
+            })
+            .catch(error => {
+                console.error("发生错误:", error);
+            });
+        }
+
+        function saveIndictmentName(fileName) {
+            indictmentName = fileName;
+        }
+
+        function saveConfirmAddressName(fileName) {
+            confirmAddressName = fileName;
+        }
+
+        function saveEvidenceName(fileName) {
+            evidenceName = fileName;
+        }
+
+        function postInformation(cityCourt, types, indictment, evidence, confirmAddress) {
+            
+            const formData = new FormData();
+            formData.append("cityCourt", cityCourt);
+            formData.append("types", types);
+            formData.append("indictment", indictment);
+            formData.append("evidence", evidence);
+            formData.append("confirmAddress", confirmAddress);
+
+            fetch("http://123.56.12.213:6791/application/application", {
+                method: "POST",
+                body: formDta
+            })
+            .then(Response => Response.json())
+            .then(data => {
+                console.log('上传成功:', data);
             })
             .catch(error => {
                 console.error("发生错误:", error);
             });
         }
     </script>
+
     <script>
+
+        function updateParagraph(){
+            const selectElement = document.getElementById('select_one');   
+            // 获取选中的选项的值
+            const selectedValue = selectElement.value;           
+            // 获取<p>元素
+            const paragraphElement = document.getElementById('city');           
+            // 将选中的值更新到<p>元素中
+            paragraphElement.textContent = selectedValue;
+        }
+
+        function updateParagraph2(){
+            const selectElement = document.getElementById('select_three');   
+            // 获取选中的选项的值
+            const selectedValue = selectElement.value;           
+            // 获取<p>元素
+            const paragraphElement = document.getElementById('type');           
+            // 将选中的值更新到<p>元素中
+            paragraphElement.textContent = selectedValue;
+        }
+
+    </script>
+
+    <!-- <script>
         var token = JSON.parse(localStorage.getItem("token"));
         if(token){
             $.ajaxSetup({
@@ -194,5 +353,5 @@
         else{
             window.location = "login.html";
         }
-    </script>
+    </script> -->
 </body>

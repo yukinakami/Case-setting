@@ -140,22 +140,39 @@ form p{
 
 form label, 
 form button{
-    background-color: #7f9ccb;
-    border: 1px ridge black;
-    padding: 5px 10px;
-    font-size: 0.8rem;
-    height: auto;
+    width: 100px;
+    border: 3px solid #fff;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #ec4e4e;
+    text-align: center;
+    font-size: 18px;
+    font-family: "AlibabaPuHui_medium";
+    color: #fff;
+}
+
+form label{
+    padding: 5px;
+    width: 200px;
+    border: 3px solid #fff;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #ec4e4e;
+    text-align: center;
+    font-size: 18px;
+    font-family: "AlibabaPuHui_medium";
+    color: #fff;
 }
 
 form label:hover, form button:hover{
     /*悬停样式选择*/
-    background-color: #2d5ba3;
+    background-color: #ab1616;
     color: white;
 }
 
 form label:active, form button:active{
     /*按住样式选择*/
-    background-color: #0d3f8f;
+    background-color: #ab1616;
     color: white;
 }
 
@@ -178,4 +195,19 @@ form label:active, form button:active{
 
 .post{
     display: flex;
+}
+
+.city select{
+    appearance: none;
+    width: 200px;
+    border: 3px solid #fff;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #ec4e4e;
+    text-align: center;
+    font-size: 18px;
+    font-family: "AlibabaPuHui_medium";
+    color: #fff;
+    margin-top: 10px;
+    margin-bottom: 20px;
 }
